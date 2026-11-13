@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Android NDK
         run: |
           echo "Downloading Android NDK..."
@@ -15,7 +15,7 @@ jobs:
         run: |
           $NDK_PATH/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android30-clang++ -shared -fPIC main.cpp -o libstandleo_mod.so -llog
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: compiled-so
           path: libstandleo_mod.so
